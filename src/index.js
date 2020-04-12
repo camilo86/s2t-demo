@@ -18,6 +18,7 @@ const audio = {
 const config = {
   encoding: 'FLAC',
   sampleRateHertz: 48000,
+
   languageCode: 'en-US'
 }
 
@@ -29,9 +30,6 @@ const request = {
 
 async function main() {
   const x = await client.recognize(request);
-  console.log(x)
-  return;
-
   const transcription = response.results.map(result => result.alternatives[0].transcript).join('\n')
 
   console.log(`Transacription: ${transcription}`)
